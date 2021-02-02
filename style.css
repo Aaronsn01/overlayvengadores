@@ -1,0 +1,98 @@
+body {
+    background-image: url("img/fondo.jpg");
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    color: #FFF;
+    margin: 50px 0;
+    display: block;
+    text-align: center;
+    font-size: 80px;
+    text-shadow: 0 0 20px #000;
+}
+
+.fotos {
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+/*Para que el contenedor muestre elementos aunque estos sean flotantes*/
+
+#container:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+#container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+/*Estructura de cada componente de la galeria (imagen + descripcion)*/
+
+#container div {
+    width: 28%;
+    height: 250px;
+    -webkit-transition: -webkit-transform 1s;
+    display: inline;
+    float: left;
+    margin: 0px 3% 0 0;
+    padding: 0;
+}
+
+#container div img {
+    width: 100%;
+    height: 200px;
+    box-shadow: 0 0 10px #666;
+    border: 5px solid #FFF
+}
+
+
+/*Estructura de la descripcion, por defecto no se muestra*/
+
+#container div img~span {
+    width: 100%;
+    display: block;
+    opacity: 0;
+    -webkit-transition: opacity 1s;
+    margin: 0;
+    padding: 2px 5px;
+    color: #FFF;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 10px #666;
+    text-align: center;
+}
+
+
+/*Se muestra la descripcion al posicionar el cursor encima de la imagen*/
+
+#container div img:hover+span {
+    opacity: 1;
+}
+
+
+/*Se especifica el comportamiento que tendran las imagenes al posicionar el cursor encima del contenedor*/
+
+#container:hover div {
+    opacity: 0.2;
+    -webkit-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    transform: scale(0.7);
+}
+
+
+/*Se especifica el comportamiento que tendran la imagen seleccionada*/
+
+#container:hover div:hover {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
